@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/party_navigation"
+    app:startDestination="@id/nav_user_home">
+
+    <fragment
+        android:id="@+id/nav_user_home"
+        android:name="com.uit.party.ui.main.main_menu.MenuFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_list_dish">
+        <action
+            android:id="@+id/action_ListDishFragment_to_DishDetailFragment"
+            app:destination="@id/nav_dish_detail" />
+        <action
+            android:id="@+id/action_ListDish_to_AddDish"
+            app:destination="@+id/fragment_add_new_dish" />
+
+        <action
+            android:id="@+id/action_ListDishFragment_to_CartDetailFragment"
+            app:destination="@+id/fragment_cart_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_dish_detail"
+        android:name="com.uit.party.ui.main.detail_dish.DetailDishFragment"
+        android:label="@string/dish_detail"
+        tools:layout="@layout/fragment_detail_dish">
+        <action
+            android:id="@+id/action_DishDetailFragment_to_ModifyDishFragment"
+            app:destination="@id/fragment_add_new_dish" />
+
+        <argument
+            android:name="position"
+            app:argType="integer" />
+
+        <argument
+            android:name="dishType"
+            app:argType="string" />
+
+        <argument
+            android:name="@string/dish_model"
+            app:argType="com.uit.party.model.DishModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add_new_dish"
+        android:name="com.uit.party.ui.main.add_new_dish.AddNewDishFragment"
+        android:label="@string/add_dish"
+        tools:layout="@layout/fragment_add_new_dish">
+
+        <argument
+            android:name="position"
+            app:argType="integer" />
+
+        <argument
+            android:name="dishType"
+            app:argType="string" />
+
+        <argument
+            android:name="@string/dish_model"
+            app:argType="com.uit.party.model.DishModel"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_cart_detail"
+        android:name="com.uit.party.ui.main.cart_detail.CartDetailFragment"
+        android:label="@string/your_cart"
+        tools:layout="@layout/fragment_cart_detail">
+
+        <action
+            android:id="@+id/action_CartDetailFragment_to_BookingSuccessFragment"
+            app:destination="@id/fragment_book_success" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_book_success"
+        android:name="com.uit.party.ui.main.book_party.BookPartyFragment"
+        android:label="@string/complete_order"
+        tools:layout="@layout/fragment_book_party">
+
+        <action
+            android:id="@+id/action_BookingPartyFragment_to_PaymentFragment"
+            app:destination="@id/nav_payment_party" />
+
+        <argument
+            android:name="listCart"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_payment_party"
+        android:name="com.uit.party.ui.main.payment_party.PaymentPartyFragment"
+        android:label="@string/payment"
+        tools:layout="@layout/payment_party_fragment">
+
+        <action
+            android:id="@+id/action_PaymentPartyFragment_to_MenuFragment"
+            app:destination="@id/nav_user_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_user_home"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="billModel"
+            app:argType="com.uit.party.model.BillModel"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_user_profile"
+        android:name="com.uit.party.ui.profile.profile_fragment.ProfileFragment"
+        android:label="@string/profile_detail"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_ProfileFragment_to_EditProfileFragment"
+            app:destination="@+id/fragment_edit_profile" />
+        <action
+            android:id="@+id/action_ProfileFragment_to_ChangePasswordFragment"
+            app:destination="@+id/fragment_change_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_restaurant_address"
+        android:name="com.uit.party.ui.address.AddressFragment"
+        android:label="@string/our_address"
+        tools:layout="@layout/fragment_maps_address" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.uit.party.ui.address.AboutUsFragment"
+        android:label="@string/about_us"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/fragment_edit_profile"
+        android:name="com.uit.party.ui.profile.edit_profile.EditProfileFragment"
+        android:label="@string/toolbar_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/fragment_change_password"
+        android:name="com.uit.party.ui.profile.change_password.ChangePasswordFragment"
+        android:label="@string/toolbar_change_password"
+        tools:layout="@layout/fragment_change_password">
+
+        <argument
+            android:name="OrderCode"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/naw_user_order"
+        android:name="com.uit.party.ui.main.history_book.HistoryBookingFragment"
+        android:label="@string/history_booking"
+        tools:layout="@layout/fragment_history_booking" />
+</navigation>

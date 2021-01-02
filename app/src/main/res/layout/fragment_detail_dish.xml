@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.main.detail_dish.DetailDishViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/standard_spacing"
+                android:layout_marginRight="@dimen/standard_spacing"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_image_height"
+                    android:layout_marginTop="@dimen/standard_spacing"
+                    android:layout_marginBottom="@dimen/standard_spacing"
+                    app:cardCornerRadius="@dimen/corner_radius"
+                    app:cardElevation="@dimen/_5sdp">
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/imageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="right"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderCircularHandlerEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="3"
+                        app:sliderStartAutoCycle="true" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ProductTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_spacing"
+                        android:layout_marginBottom="@dimen/standard_spacing"
+                        android:text="@{viewModel.nameDish}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                        android:textSize="@dimen/item_product_title_size"
+                        tools:text="Nem cua bể" />
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:numStars="5"
+                        android:rating="@{viewModel.mRatingShow}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:text="@{viewModel.mPrice}"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        tools:text="Price: 500.000VND" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ProductDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_spacing"
+                        android:lineSpacingMultiplier="1.5"
+                        android:text="@{viewModel.descriptionDish}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        tools:text="@string/description_sample" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/list_rated"
+                        android:textStyle="italic" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_rating" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" />
+
+                    <Button
+                        android:id="@+id/retry_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/retry"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_20sdp"
+            android:backgroundTint="@color/colorAccentSecondary"
+            android:contentDescription="@string/review"
+            android:src="@drawable/ic_customer_review" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_add_to_cart"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_centerInParent="true"
+            android:elevation="@dimen/_2sdp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/add_to_cart"
+            tools:visibility="visible" />
+    </RelativeLayout>
+</layout>

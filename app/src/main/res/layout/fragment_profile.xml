@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.profile.profile_fragment.ProfileViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhile">
+
+            <View
+                android:id="@+id/rl_background"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/colorPrimary" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_avatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="75dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_account_circle_24dp"
+                    app:avatarUrl="@{viewModel.mAvatar}"/>
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/rl_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_background"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{(view) -> viewModel.editProfile(view)}"
+                android:padding="@dimen/_5sdp"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_edit"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@drawable/ic_edit_black_24dp"
+                    app:tint="@color/colorPrimaryDark"
+                    tools:ignore="PrivateResource" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_edit"
+                    android:gravity="center"
+                    android:text="@string/edit_profile"
+                    android:textColor="#B3000000"
+                    android:textSize="@dimen/_12sdp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_background"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{(view) -> viewModel.onChangePasswordClicked(view)}"
+                android:padding="@dimen/_5sdp"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_change_password"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/change_password"
+                    android:tint="@color/colorPrimaryDark" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_change_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_change_password"
+                    android:gravity="center"
+                    android:text="@string/profile_change_password"
+                    android:textColor="#B3000000"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_avatar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_bg_project"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/upload_avatar"
+                android:textColor="@color/colorPrimary"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_upload"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_item_form"
+                android:text="@{viewModel.mName}"
+                android:textColor="#000"
+                android:textSize="30sp"
+                tools:text="Trần Đức Luân" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_full_name">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewTitle"
+                        android:text="@string/user_name" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_username"
+                        style="@style/TextViewContent"
+                        android:text="@{viewModel.mUsername}"
+                        tools:text="ducluanxutrieu" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewTitle"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/action_email" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_email"
+                        style="@style/TextViewContent"
+                        android:text="@{viewModel.mEmail}"
+                        tools:text="ducluanxutrieu@gmail.com" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewTitle"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/mobile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_mobile"
+                        style="@style/TextViewContent"
+                        android:text="@{viewModel.mMobile}"
+                        tools:text="0123456789" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewTitle"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/sex" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_sex"
+                        style="@style/TextViewContent"
+                        android:text="@{viewModel.mSex}"
+                        tools:text="Male" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewTitle"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/birthday" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/TextViewContent"
+                        android:text="@{viewModel.MBirthDay}"
+                        tools:text="01/01/1997" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/loading_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone"
+            app:layout_constraintVertical_bias="0.3" />
+    </RelativeLayout>
+</layout>

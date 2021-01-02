@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.main.book_party.BookPartyViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhile"
+                android:orientation="vertical">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/food_ordering" />
+
+                <LinearLayout
+                    android:id="@+id/ll_date_party"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/date_party"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_date_party"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:gravity="center"
+                        android:inputType="datetime"
+                        android:onClick="@{(view) -> viewModel.onDatePartyClicked(view)}"
+                        android:text="@{viewModel.mDatePartyField}"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        tools:ignore="Deprecated"
+                        tools:text="22/11/2022" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/number_of_table"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_table"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/_5"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/number_customer"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/_50"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/total"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_total_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@{viewModel.mTotalPrice}"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        tools:text="1.500.000Đ" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_discount_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/discount_code"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_discount_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/museo_sans_cyrl"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.mDishCountCodeField}"
+                        android:textColor="@color/colorBlue_78"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        tools:text="ABC_XYZ" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_go"
+                    style="@style/MaterialButton"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:onClick="@{() -> viewModel.onOrderNowClicked()}"
+                    android:stateListAnimator="@drawable/state_list_animator_button"
+                    android:text="@string/order_now"
+                    app:cornerRadius="@dimen/corner_radius" />
+            </LinearLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_centerInParent="true"
+                android:elevation="@dimen/_2sdp"
+                android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.GONE}"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

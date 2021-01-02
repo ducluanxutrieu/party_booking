@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.uit.party.ui.main.cart_detail.CartDetailItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/colorWhile"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_dish_avatar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1.5"
+            android:padding="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/corner_radius">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_dish_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:dishUrl="@{itemViewModel.mAvatarDish}"
+                tools:src="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:orientation="vertical"
+            android:layout_weight="3.8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:maxLines="2"
+                android:text="@{itemViewModel.mNameDish}"
+                android:textSize="@dimen/_15sdp"
+                tools:text="Rồng xanh vượt đại dương" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:gravity="center_vertical|end"
+                android:text="@={itemViewModel.mDishPrice}"
+                android:textSize="@dimen/_13sdp"
+                tools:text="150000 Đ" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_increase"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center_horizontal|top"
+                android:src="@drawable/ic_down"
+                android:tint="@color/colorAccent"
+                android:rotation="180"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/et_dishes_number"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_text_box"
+                android:gravity="center"
+                android:hint="@string/amount"
+                android:inputType="number"
+                android:text="@={itemViewModel.mNumberDishInType}"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                tools:text="@string/_1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_reduction"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:src="@drawable/ic_down"
+                android:tint="@color/colorAccent" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

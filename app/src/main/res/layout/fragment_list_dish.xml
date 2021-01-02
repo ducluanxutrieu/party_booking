@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.main.main_menu.MenuViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swl_list_dish"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_sign_in_background"
+                android:visibility="@{viewModel.mShowMenu? View.VISIBLE : View.GONE}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_main_menu"
+                />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab_add_dish"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:contentDescription="@string/your_cart"
+            android:onClick="@{(view) -> viewModel.onAddDishClicked(view)}"
+            android:text="@string/add_dish"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhile"
+            android:visibility="@{viewModel.mShowFab}"
+            app:icon="@drawable/plus"
+            app:iconTint="@color/colorWhile" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.mShowMenu? View.GONE : View.VISIBLE}"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            tools:visibility="gone"
+            app:lottie_rawRes="@raw/no_internet_connection" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_add_to_cart"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_centerInParent="true"
+            android:elevation="@dimen/_2sdp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/add_to_cart"
+            tools:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorCrystalClear"
+            android:visibility="@{viewModel.mShowLoading ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:elevation="@dimen/_2sdp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

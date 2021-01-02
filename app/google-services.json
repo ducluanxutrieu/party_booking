@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "610324149417",
+    "firebase_url": "https://funparty-82263.firebaseio.com",
+    "project_id": "funparty-82263",
+    "storage_bucket": "funparty-82263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610324149417:android:45a5d03a442da20da2e5b8",
+        "android_client_info": {
+          "package_name": "com.uit.party"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610324149417-863na5gp39h2p4vt9gqjsgpu4jb87nct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uit.party",
+            "certificate_hash": "0cd6d66e4921541e63530c5ff646bf3c84f8bceb"
+          }
+        },
+        {
+          "client_id": "610324149417-2i8qf96ut868qm1f28f3cdm2duav05vj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5EJ4yWbVdBDFUKTeGgi7s35h4BRwDuj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610324149417-2i8qf96ut868qm1f28f3cdm2duav05vj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

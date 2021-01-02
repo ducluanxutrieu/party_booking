@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.uit.party.ui.main.main_menu.ItemMenuViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_dish_type"
+            style="@style/TextViewTitle"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            tools:text="Main Dish"
+            android:text="@{itemViewModel.mTypeMenuField}"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/colorWhile"
+            android:gravity="center"
+            android:background="@drawable/rounder_corner" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_dish_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_dish"/>
+    </LinearLayout>
+</layout>

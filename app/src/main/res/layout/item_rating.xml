@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp">
+
+        <LinearLayout
+            android:id="@+id/ll_username"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/ll_rating"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_username_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/museo_sans_cyrl"
+                tools:text="@string/tran_duc_luan" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_content_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="sdfasdfasdfas asdf asdfasd asdf asdf asdfas asdf asdfasdf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating_bar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:max="5"
+                android:numStars="5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_time_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="27/11/2019" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

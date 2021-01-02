@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">@dimen/_16sdp</dimen>
+    <dimen name="activity_horizontal_margin">@dimen/_16sdp</dimen>
+    <dimen name="corner_radius">@dimen/_10sdp</dimen>
+    <dimen name="margin_item_form">@dimen/_5sdp</dimen>
+    <dimen name="fab_margin">@dimen/_20sdp</dimen>
+    <dimen name="shrine_grid_item_margin">@dimen/_5sdp</dimen>
+    <dimen name="shrine_card_inner_padding">@dimen/_8sdp</dimen>
+    <dimen name="margin_vertical_item_form">10dp</dimen>
+    <dimen name="margin_field_form_horizontal">@dimen/_30sdp</dimen>
+    <dimen name="card_view_default_elevation">@dimen/_2sdp</dimen>
+    <dimen name="standard_spacing">10dp</dimen>
+    <dimen name="item_product_title_size">30sp</dimen>
+    <dimen name="item_image_height">@dimen/_150sdp</dimen>
+
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">@dimen/_150sdp</dimen>
+    <dimen name="add_more_image_size">@dimen/_60sdp</dimen>
+    <dimen name="error_text_size">24sp</dimen>
+</resources>

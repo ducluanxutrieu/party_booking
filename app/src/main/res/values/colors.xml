@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f37d42</color>
+    <color name="colorPrimaryDark">#bb4e14</color>
+    <color name="colorAccent">#ffae70</color>
+    <color name="colorAccentSecondary">#ffb300</color>
+    <color name="colorDivider">#1f000000</color>
+    <color name="textColorProduct">#0a3142</color>
+    <color name="colorWhile">#ffffff</color>
+    <color name="colorBlue_78">#140078</color>
+    <color name="background_color_image">#c5cae9</color>
+    <color name="blackColor">#000000</color>
+    <color name="textColorOrange">#fb8942</color>
+    <color name="colorCrystalClear">#7f000000</color>
+    <color name="colorRed">#FF0000</color>
+</resources>

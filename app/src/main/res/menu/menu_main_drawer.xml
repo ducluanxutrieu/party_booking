@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+
+    <group>
+        <item
+            android:id="@+id/nav_user_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home"
+            />
+
+        <item
+            android:id="@+id/nav_user_profile"
+            android:icon="@drawable/ic_account_circle_24dp"
+            android:title="@string/user_profile"
+            />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_restaurant_address"
+            android:icon="@drawable/ic_location"
+            android:title="@string/address"
+            />
+    </group>
+
+    <!--<group>
+        <item
+            android:id="@+id/nav_user_vouchers"
+            android:icon="@drawable/ic_voucher"
+            android:title="@string/my_vouchers"
+            />
+    </group>-->
+
+    <group>
+        <item
+            android:id="@+id/naw_user_order"
+            android:icon="@drawable/ic_booking_history"
+            android:title="@string/your_ordered"
+            />
+    </group>
+
+    <item android:title="@string/communicate">
+        <menu>
+            <!--<item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_email"
+                android:title="@string/feedback"
+                />-->
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_info"
+                android:title="@string/about_us"
+                />
+        </menu>
+    </item>
+
+    <group
+        android:id="@+id/version_app">
+        <item
+            android:id="@+id/version"
+            android:title=""
+            app:actionLayout="@layout/version_navigation"/>
+    </group>
+
+</menu>

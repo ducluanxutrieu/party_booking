@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.main.add_new_dish.AddNewDishFragmentViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_item_form"
+                bind:textError="@{viewModel.mErrorTitle}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_title_dish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dish_title"
+                    android:text="@={viewModel.mTitle}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_item_form"
+                bind:textError="@{viewModel.mErrorDescription}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_description_dish"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:gravity="top|start"
+                    android:hint="@string/dish_description"
+                    android:text="@={viewModel.mDescription}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:text="@string/type"
+                    android:textSize="@dimen/_12sdp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/background_spinner">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinner_dish_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="@dimen/_60sdp"
+                        android:spinnerMode="dropdown" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/drop_down" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:text="@string/add_more_image"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="@{viewModel.mShowUploadImageDish}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:onClick="@{(view) -> viewModel.onAddImageDescription(view)}"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.mShowUploadImageDish}"
+                android:weightSum="4">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_add_more_image"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_more_image_size"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:background="@color/background_color_image"
+                    android:src="@drawable/plus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tv_more_image_one"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_more_image_size"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:background="@color/background_color_image"
+                    android:src="@drawable/plus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tv_more_image_two"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_more_image_size"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:background="@color/background_color_image"
+                    android:src="@drawable/plus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tv_more_image_three"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/add_more_image_size"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:background="@color/background_color_image"
+                    android:src="@drawable/plus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:text="@string/price"
+                    android:textSize="@dimen/_12ssp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sdp"
+                    app:hintEnabled="false"
+                    bind:textError="@{viewModel.mErrorPrice}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_price"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:hint="@string/_0"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:text="@={viewModel.mPrice}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:text="@string/vnd" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_send_dish"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:enabled="@{viewModel.mEnableSendButton}"
+                android:onClick="@{() -> viewModel.onSendAddDishClicked()}"
+                android:text="@{viewModel.mButtonField}"
+                app:cornerRadius="@dimen/corner_radius" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

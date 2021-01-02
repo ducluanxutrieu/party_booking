@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.uit.party.ui.main.main_menu.menu_item.ItemDishViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ProductEntry"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_margin="@dimen/shrine_grid_item_margin"
+        style="@style/clickableCard"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/card_view_default_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/shrine_card_inner_padding"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ProductPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:text="@{itemViewModel.priceDish}"
+                    android:textColor="@color/textColorProduct"
+                    android:textStyle="bold"
+                    tools:text="56$" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_add_to_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="end"
+                    android:elevation="@dimen/_2sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_add_dish_cart_24dp"
+                    android:tint="@color/colorAccent"
+                    style="@style/clickableCard"/>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ProductImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    app:dishUrl="@{itemViewModel.imageDish}"
+                    tools:src="@tools:sample/backgrounds/scenic"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:elevation="@dimen/_2sdp"
+                android:maxLines="2"
+                android:text="@{itemViewModel.nameDish}"
+                android:textColor="#000000"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ProductImage"
+                tools:text="BeachBall" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

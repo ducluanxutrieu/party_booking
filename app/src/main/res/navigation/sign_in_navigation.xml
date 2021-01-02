@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_in_navigation"
+    app:startDestination="@id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.uit.party.ui.sign_in.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_to_RegisterFragment"
+            app:destination="@id/nav_register" />
+
+        <action
+            android:id="@+id/action_LoginFragment_to_ResetPasswordFragment"
+            app:destination="@+id/nav_reset_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_reset_password"
+        android:name="com.uit.party.ui.sign_in.reset_password.ResetPasswordFragment"
+        android:label="@string/reset_password"
+        tools:layout="@layout/fragment_reset_password"
+        >
+
+        <action android:id="@+id/action_ResetPasswordFragment_to_ChangePasswordFragment"
+            app:destination="@id/fragment_change_password"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/sign_in_navigation"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.uit.party.ui.sign_in.register.RegisterFragment"
+        android:label="@string/register"
+        tools:layout="@layout/fragment_register">
+
+        <argument
+            android:name="cX_FAB"
+            app:argType="integer" />
+        <argument
+            android:name="cY_FAB"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_change_password"
+        android:name="com.uit.party.ui.profile.change_password.ChangePasswordFragment"
+        android:label="@string/toolbar_change_password"
+        tools:layout="@layout/fragment_change_password" >
+
+        <argument android:name="OrderCode"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_ResetPasswordFragment_back_LoginFragment"
+            app:destination="@id/nav_login"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_login"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+</navigation>

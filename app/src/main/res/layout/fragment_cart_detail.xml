@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.uit.party.ui.main.cart_detail.CartDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhile"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.mShowCart ? View.VISIBLE : View.GONE}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cart_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_cart_detail"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_order_now"
+                style="@style/MaterialButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/_10sdp"
+                android:onClick="@{(view) -> viewModel.onOrderNowClicked(view)}"
+                android:text="@string/order_now"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.mShowCart ? View.GONE : View.VISIBLE}"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/empty_cart" />
+    </RelativeLayout>
+</layout>
